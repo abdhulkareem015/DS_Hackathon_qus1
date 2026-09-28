@@ -1,0 +1,197 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background-color: #000000;
+    color: #ffffff;
+    font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Tabular numerics for all metric values */
+  [data-metric] { font-variant-numeric: tabular-nums; }
+}
+
+@layer components {
+
+  /* ── Typography ─────────────────────────────────────────────── */
+  .display-heading {
+    font-size: clamp(56px, 8vw, 113px);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+    color: #ffffff;
+  }
+  .section-heading {
+    font-size: clamp(36px, 5vw, 78px);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+    color: #ffffff;
+  }
+  .page-heading {
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+    color: #ffffff;
+  }
+  .body-text {
+    font-size: 18px;
+    font-weight: 200;
+    line-height: 1.5;
+    color: #ffffff;
+  }
+  .body-muted {
+    font-size: 18px;
+    font-weight: 200;
+    line-height: 1.5;
+    color: #bdbdbd;
+  }
+  .label-amber {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: 0.025em;
+    text-transform: uppercase;
+    color: #ffb829;
+  }
+  .label-gray {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: 0.025em;
+    text-transform: uppercase;
+    color: #9a9a9a;
+  }
+  .caption {
+    font-size: 12px;
+    line-height: 1.5;
+    color: #9a9a9a;
+  }
+
+  /* ── Buttons ────────────────────────────────────────────────── */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #8052ff;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.025em;
+    text-transform: uppercase;
+    padding: 14px 24px;
+    border-radius: 9999px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s, opacity 0.2s;
+    white-space: nowrap;
+  }
+  .btn-primary:hover { background-color: #6b3fe0; }
+  .btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: none;
+    color: #9a9a9a;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 8px 0;
+    border: none;
+    cursor: pointer;
+    transition: color 0.2s;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: transparent;
+  }
+  .btn-ghost:hover { color: #ffffff; text-decoration-color: #9a9a9a; }
+
+  /* ── Form controls ──────────────────────────────────────────── */
+  .input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #333333;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 10px 0;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .input:focus { border-bottom-color: #8052ff; }
+  .input option { background: #111111; color: #ffffff; }
+
+  /* ── Tables ─────────────────────────────────────────────────── */
+  .da-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .da-table thead tr { border-bottom: 1px solid #1a1a1a; }
+  .da-table th {
+    padding: 10px 12px;
+    text-align: left;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.025em;
+    text-transform: uppercase;
+    color: #9a9a9a;
+  }
+  .da-table th.right { text-align: right; }
+  .da-table td { padding: 10px 12px; color: #bdbdbd; border-bottom: 1px solid #0d0d0d; }
+  .da-table td.right { text-align: right; font-variant-numeric: tabular-nums; }
+  .da-table tbody tr:hover td { color: #ffffff; }
+
+  /* ── Section divider ────────────────────────────────────────── */
+  .section-gap { margin-top: clamp(60px, 8vw, 120px); }
+  .section-inner { max-width: 1280px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px); }
+
+  /* ── Pill badge ─────────────────────────────────────────────── */
+  .badge-iris   { display:inline-flex; align-items:center; padding: 2px 10px; border-radius:9999px; font-size:11px; font-weight:600; background:rgba(128,82,255,.15); color:#8052ff; }
+  .badge-amber  { display:inline-flex; align-items:center; padding: 2px 10px; border-radius:9999px; font-size:11px; font-weight:600; background:rgba(255,184,41,.15); color:#ffb829; }
+  .badge-teal   { display:inline-flex; align-items:center; padding: 2px 10px; border-radius:9999px; font-size:11px; font-weight:600; background:rgba(21,132,110,.15); color:#15846e; }
+  .badge-red    { display:inline-flex; align-items:center; padding: 2px 10px; border-radius:9999px; font-size:11px; font-weight:600; background:rgba(239,68,68,.15); color:#f87171; }
+  .badge-gray   { display:inline-flex; align-items:center; padding: 2px 10px; border-radius:9999px; font-size:11px; font-weight:600; background:rgba(155,155,155,.12); color:#9a9a9a; }
+
+  /* ── Metric strip ───────────────────────────────────────────── */
+  .metric-value {
+    font-size: clamp(28px, 3.5vw, 42px);
+    font-weight: 400;
+    letter-spacing: -0.03em;
+    color: #ffffff;
+    font-variant-numeric: tabular-nums;
+  }
+  .metric-label {
+    font-size: 12px;
+    font-weight: 400;
+    color: #9a9a9a;
+    letter-spacing: 0.025em;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  /* ── Alert inline messages ──────────────────────────────────── */
+  .da-alert {
+    padding: 14px 18px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 200;
+    line-height: 1.5;
+  }
+  .da-alert-amber { background: rgba(255,184,41,.08); color: #ffb829; border: 1px solid rgba(255,184,41,.2); }
+  .da-alert-iris  { background: rgba(128,82,255,.08); color: #bdbdbd; border: 1px solid rgba(128,82,255,.2); }
+  .da-alert-red   { background: rgba(239,68,68,.08);  color: #f87171; border: 1px solid rgba(239,68,68,.2); }
+
+  /* ── Scrollbar ──────────────────────────────────────────────── */
+  ::-webkit-scrollbar { width: 4px; height: 4px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #222; border-radius: 2px; }
+}
